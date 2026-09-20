@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>琉璃厂传奇全集 - 经典国漫在线阅读与鉴赏平台</title>
+    <meta name="description" content="琉璃厂传奇全集在线阅读平台，提供高清正版国漫资源、角色图鉴、剧情解析及作者背景介绍。收录经典传奇故事，带您领略京城文化魅力。">
+    <meta name="keywords" content="琉璃厂传奇全集,琉璃厂传奇,国漫,在线漫画,京味儿文化,经典传奇">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown - 书卷气与古董感 */
+            --secondary-color: #D2B48C; /* Tan - 暖色调背景 */
+            --accent-color: #CD853F; /* Peru - 强调色 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F9F7F2; /* 米色纸张质感 */
+            --bg-card: #FFFFFF;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+
+        .search-box {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .search-box {
+                display: block;
+            }
+        }
+
+        .search-box input {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            width: 200px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/antique/1600/600') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .section-more {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Comic Grid */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .comic-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .comic-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-cover {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .intro-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .intro-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Chapter List */
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chapter-item {
+            background: var(--bg-card);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .chapter-item:hover {
+            background-color: #fdfdfd;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .chapter-title {
+            font-weight: 500;
+        }
+
+        .chapter-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .chapter-btn {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .info-box {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .info-box h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .character-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+        }
+
+        .character-item {
+            text-align: center;
+        }
+
+        .character-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 5px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .character-name {
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                📚 <span>阅古</span> 漫库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">全集列表</a></li>
+                    <li><a href="#">人物图鉴</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索漫画、角色...">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>琉璃厂传奇全集</h1>
+            <p>重温京味儿经典，探寻古玩江湖的智慧与温情</p>
+            <a href="#intro" class="btn-primary">立即阅读</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 简介 Section -->
+        <section id="intro" class="intro-section">
+            <h2>作品简介</h2>
+            <div class="intro-content">
+                <p>《琉璃厂传奇》是一部以北京著名的“文化街”——琉璃厂为背景的经典国漫作品。故事巧妙地融合了古玩收藏、商战博弈与市井人情，生动刻画了老北京人淳朴、幽默而又充满智慧的特质。作品通过一系列跌宕起伏的剧情，展现了琉璃厂这一特殊文化地标在历史变迁中的独特魅力，既有对传统文化的致敬，也不乏对人性善恶的深刻剖析。</p>
+                <p>本站收录了《琉璃厂传奇全集》，采用高清漫画格式呈现，让读者能够沉浸式地体验古玩江湖的风云变幻。无论是对于古玩文化感兴趣的读者，还是喜爱京味儿故事的动漫爱好者，这里都是不容错过的精神家园。</p>
+            </div>
+        </section>
+
+        <!-- 作品分类/标签 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">热门标签</h2>
+                <a href="#" class="section-more">查看全部 &raquo;</a>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span style="background: #eee; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem;">古玩鉴宝</span>
+                <span style="background: #eee; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem;">商战博弈</span>
+                <span style="background: #eee; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem;">京味儿文化</span>
+                <span style="background: #eee; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem;">传统文化</span>
+                <span style="background: #eee; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem;">江湖恩怨</span>
+            </div>
+        </section>
+
+        <!-- 全集列表 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">全集目录</h2>
+                <a href="#" class="section-more">加载更多 &raquo;</a>
+            </div>
+            <div class="chapter-list">
+                <div class="chapter-item">
+                    <span class="chapter-title">第1卷：初入琉璃厂</span>
+                    <span class="chapter-date">2023-10-01</span>
+                    <a href="#" class="chapter-btn">阅读 &rarr;</a>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-title">第2卷：古玩街的暗流</span>
+                    <span class="chapter-date">2023-10-05</span>
+                    <a href="#" class="chapter-btn">阅读 &rarr;</a>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-title">第3卷：真假如意观</span>
+                    <span class="chapter-date">2023-10-12</span>
+                    <a href="#" class="chapter-btn">阅读 &rarr;</a>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-title">第4卷：翰林院的往事</span>
+                    <span class="chapter-date">2023-10-18</span>
+                    <a href="#" class="chapter-btn">阅读 &rarr;</a>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-title">第5卷：大亨的博弈</span>
+                    <span class="chapter-date">2023-10-25</span>
+                    <a href="#" class="chapter-btn">阅读 &rarr;</a>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-title">第6卷：传承与新生</span>
+                    <span class="chapter-date">2023-11-02</span>
+                    <a href="#" class="chapter-btn">阅读 &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品展示与角色 -->
+        <div class="info-grid">
+            <!-- 作品详情 -->
+            <article class="info-box">
+                <h3>作品详情</h3>
+                <p><strong>原著：</strong> 经典IP改编</p>
+                <p><strong>画风：</strong> 新派国漫，线条细腻，色彩典雅</p>
+                <p><strong>更新状态：</strong> 连载中</p>
+                <p><strong>推荐指数：</strong> ★★★★★</p>
+                <br>
+                <h3>读者评价</h3>
+                <p>“画面太有感觉了，完全还原了老北京的烟火气，看得很过瘾！”</p>
+                <p style="text-align: right; font-size: 0.9rem; color: #666; margin-top: 5px;">—— 书画爱好者</p>
+            </article>
+
+            <!-- 角色图鉴 -->
+            <aside class="info-box">
+                <h3>主要角色</h3>
+                <div class="character-list">
+                    <div class="character-item">
+                        <img src="https://picsum.photos/seed/char1/100/100" alt="角色" class="character-img">
+                        <div class="character-name">李文博</div>
+                    </div>
+                    <div class="character-item">
+                        <img src="https://picsum.photos/seed/char2/100/100" alt="角色" class="character-img">
+                        <div class="character-name">苏婉儿</div>
+                    </div>
+                    <div class="character-item">
+                        <img src="https://picsum.photos/seed/char3/100/100" alt="角色" class="character-img">
+                        <div class="character-name">王掌柜</div>
+                    </div>
+                    <div class="character-item">
+                        <img src="https://picsum.photos/seed/char4/100/100" alt="角色" class="character-img">
+                        <div class="character-name">赵四爷</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="#">用户协议</a>
+            <a href="#">联系客服</a>
+            <a href="#">加入收藏</a>
+        </div>
+        <p class="copyright">
+            &copy; 2023 阅古漫库. All Rights Reserved. <br>
+            本站内容仅供学习交流，版权归原作者所有。
+        </p>
+    </footer>
+
+</body>
+</html>
