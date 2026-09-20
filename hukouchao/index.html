@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壶口潮-黄河奇观与生态文化探索平台</title>
+    <meta name="description" content="壶口潮是一个专注于黄河壶口瀑布生态景观、地质奇观及当地民俗文化的综合信息平台。提供实时潮汐预报、最佳观赏指南、黄河文化深度解读及沿线旅游资讯。">
+    <meta name="keywords" content="壶口潮, 壶口瀑布, 黄河潮汐, 黄河大合唱, 晋陕大峡谷, 壶口旅游指南">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513; /* 沙土色/古铜色 */
+            --secondary-color: #2F4F4F; /* 深岩灰/墨绿 */
+            --accent-color: #CD853F; /* 琥珀色/激流黄 */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F7F2; /* 米宣纸色 */
+            --bg-white: #FFFFFF;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/hukouwaterfall/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            background-color: #e6a847;
+            transform: translateY(-2px);
+        }
+
+        /* 核心数据栏 */
+        .stats-bar {
+            background-color: var(--bg-white);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 内容区布局 */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        /* 左侧主要文章流 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+
+        .article-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+            transition: transform 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .article-body {
+            padding: 24px;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .article-title {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* 侧边栏 */
+        aside .widget {
+            background: var(--bg-white);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: var(--secondary-color);
+        }
+
+        .tide-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 14px;
+        }
+
+        .tide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tide-time {
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .tide-height {
+            color: var(--primary-color);
+        }
+
+        /* 专题图集 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 16px;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* FAQ 区域 */
+        .faq-section {
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 16px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 14px;
+            padding-left: 16px;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+            }
+
+            nav ul {
+                margin-top: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>🌊</span> 壶口潮
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#phenomenon">奇观</a></li>
+                    <li><a href="#guide">旅游指南</a></li>
+                    <li><a href="#culture">黄河文化</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#guide" class="cta-btn">预订门票</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>聆听黄河咆哮，感受壶口之潮</h1>
+                <p>探索中国第二大瀑布的壮丽景观，了解黄河“壶口潮”的形成原理与最佳观赏时间。</p>
+                <a href="#phenomenon" class="hero-btn">探索奇观</a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="container">
+            <div class="stats-bar">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>50m</h3>
+                        <p>最大落差</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1000+</h3>
+                        <p>每秒流量</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4A</h3>
+                        <p>国家景区</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>60km²</h3>
+                        <p>峡谷面积</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="main-layout">
+                <!-- Main Content Area -->
+                <div class="content-area">
+                    <section id="phenomenon">
+                        <div class="section-header">
+                            <h2>壶口潮：黄河水的千军万马</h2>
+                            <a href="#" style="font-size:14px; color:var(--primary-color);">查看更多 ></a>
+                        </div>
+
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/hukouwave/800/400" alt="黄河壶口瀑布激流" class="article-img">
+                            <div class="article-body">
+                                <div class="article-meta">2023-10-24 | 地理奇观</div>
+                                <h3 class="article-title">黄河壶口瀑布的“壶口潮”现象解析</h3>
+                                <p class="article-excerpt">
+                                    壶口瀑布并非时刻都处于静止状态，在汛期或特定潮汐作用下，黄河水会形成巨大的“壶口潮”。这种现象类似于海洋的潮汐，但由黄河上游的水量积压和地形狭窄共同作用而成。本文将深入探讨壶口潮的形成机制、声音传播以及视觉冲击力。
+                                </p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/waterfallnight/800/400" alt="壶口瀑布夜景" class="article-img">
+                            <div class="article-body">
+                                <div class="article-meta">2023-10-22 | 摄影/旅游</div>
+                                <h3 class="article-title">夜游壶口：灯光下的黄河咆哮</h3>
+                                <p class="article-excerpt">
+                                    夜幕降临，壶口瀑布披上了霓虹的外衣。不同于白天的雄浑，夜晚的瀑布在灯光照射下呈现出金红色的壮丽景象。本文分享夜间观赏壶口潮的最佳机位与摄影技巧，助你捕捉这一自然奇观的璀璨瞬间。
+                                </p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/sand/800/400" alt="黄河泥沙" class="article-img">
+                            <div class="article-body">
+                                <div class="article-meta">2023-10-20 | 生态/环境</div>
+                                <h3 class="article-title">黄河泥沙与壶口瀑布的变迁</h3>
+                                <p class="article-excerpt">
+                                    黄河携带大量泥沙是其显著特征。壶口瀑布在泥沙的冲刷下，河床形态也在不断发生变化。了解黄河泥沙的来源及其对壶口瀑布景观的长期影响，有助于我们更深刻地理解“母亲河”的脾气。
+                                </p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- Gallery Section -->
+                    <section class="gallery-section" style="margin-top: 40px;">
+                        <div class="section-header">
+                            <h2>精选图集</h2>
+                        </div>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/seed/waterfall1/400/500" alt="瀑布全景">
+                                <div class="gallery-overlay">全景震撼</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/seed/waterfall2/400/500" alt="彩虹">
+                                <div class="gallery-overlay">彩虹飞架</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/seed/waterfall3/400/500" alt="激流">
+                                <div class="gallery-overlay">激流勇进</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://picsum.photos/seed/waterfall4/400/500" alt="彩虹">
+                                <div class="gallery-overlay">水雾迷蒙</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Tide Widget -->
+                    <div class="widget">
+                        <h3 class="widget-title">实时潮汐预报</h3>
+                        <p style="font-size:12px; color:#999; margin-bottom:15px;">显示黄河壶口段近期水位趋势</p>
+                        <ul class="tide-list">
+                            <li>
+                                <span class="tide-time">10:00</span>
+                                <span class="tide-height">水位 8.5m (涨)</span>
+                            </li>
+                            <li>
+                                <span class="tide-time">14:00</span>
+                                <span class="tide-height">水位 8.2m (平)</span>
+                            </li>
+                            <li>
+                                <span class="tide-time">18:00</span>
+                                <span class="tide-height">水位 7.9m (落)</span>
+                            </li>
+                            <li>
+                                <span class="tide-time">22:00</span>
+                                <span class="tide-height">水位 7.5m (落)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Guide Widget -->
+                    <div class="widget">
+                        <h3 class="widget-title">旅游指南</h3>
+                        <ul class="tide-list">
+                            <li><a href="#">最佳观赏季节</a></li>
+                            <li><a href="#">交通路线详解</a></li>
+                            <li><a href="#">周边住宿推荐</a></li>
+                            <li><a href="#">晋陕大峡谷地图</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Cultural Widget -->
+                    <div class="widget">
+                        <h3 class="widget-title">黄河文化</h3>
+                        <p style="font-size:13px; color:#666; margin-bottom:10px;">
+                            壶口瀑布不仅是自然景观，更是中华民族精神的象征。这里流传着《黄河大合唱》的诞生地传说。
+                        </p>
+                        <a href="#" class="cta-btn" style="display:block; text-align:center; width:100%; font-size:12px; padding:6px;">了解更多文化</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container">
+            <div class="faq-section">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">什么是“壶口潮”？</div>
+                        <div class="faq-answer">
+                            “壶口潮”是指黄河水流在壶口瀑布处因地形狭窄，水流加速、水位暴涨并形成波浪涌动的现象。它受上游降雨、水库调度以及下游河口潮汐的共同影响，常见于汛期或黄河凌汛期。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">什么时候去壶口瀑布最好？</div>
+                        <div class="faq-answer">
+                            最佳观赏季节为每年5月至10月。其中，4-6月（桃花汛）水量适中，景色秀丽；7-9月（汛期）水量最大，气势磅礴，最易看到“壶口潮”现象。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">在壶口瀑布能看到彩虹吗？</div>
+                        <div class="faq-answer">
+                            是的，在阳光充足的情况下，瀑布激起的水雾在阳光照射下容易形成彩虹。尤其是雨后初晴或夏季午后，彩虹出现的频率较高。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>壶口潮</h4>
+                    <p>致力于传播黄河壶口瀑布的自然之美与人文精神，为游客提供最专业的旅游资讯与景观解读。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">景区简介</a></li>
+                        <li><a href="#">门票预订</a></li>
+                        <li><a href="#">交通指南</a></li>
+                        <li><a href="#">游客服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门专题</h4>
+                    <ul>
+                        <li><a href="#">黄河大合唱</a></li>
+                        <li><a href="#">晋陕大峡谷</a></li>
+                        <li><a href="#">黄河古渡口</a></li>
+                        <li><a href="#">生态保护</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>电话：0357-5555-1234</li>
+                        <li>邮箱：info@hukouchao.com</li>
+                        <li>地址：山西省临汾市吉县壶口镇</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 壶口潮 - 黄河奇观与生态文化探索平台 版权所有
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
